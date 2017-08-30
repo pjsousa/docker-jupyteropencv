@@ -1,6 +1,8 @@
 FROM	pjsousa/docker-opencv
 
-WORKDIR $HOME/jupyterdata
+WORKDIR $HOME
 
-CMD ["jupyter", "notebook", "--allow-root"]
+COPY run-server.sh $HOME/run-server.sh
+RUN chmod 777 $HOME/run-server.sh
 
+CMD $HOME/run-server.sh
